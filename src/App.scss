@@ -24,24 +24,15 @@
           flex:1;
           margin-top: 10px;
           margin-right: 5px;
+          margin-left: 5px;
           padding: 10px;
           border: none;
-          border-radius: 5px;
-        }
-        .search-btn{
-          color: #ffffff;
-          font-size: 14px;
-          background-color: #502F8E;
-          margin-top: 10px;
-          padding: 8px;
           border-radius: 5px;
         }
       }
       .word-list{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
         margin-top: 20px;
         height: 80vh;
         overflow-x:auto;
@@ -59,14 +50,13 @@
       padding: 30px;
       background-color: #EFEFEF;
       flex: 5;
-      h2{
-        color: #502F8E;
-      }
       h3{
+        font-size: 24px;
         color: #5F2F6F;
         margin-left: 10px;
       }
       p{
+        font-size: 18px;
         margin-left: 20px;
       }
     }
