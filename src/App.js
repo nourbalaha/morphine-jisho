@@ -1,54 +1,48 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.scss';
 
+import jisho from "./assets/jisho"
+
 function App() {
+  const [word,setWord] = useState(jisho[0])
+  const [search,setSearch] = useState("")
+
+  console.log(search==="")
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Medical Dictionary</h1>
+        <h1>القاموس الطبي</h1>
       </header>
       <main className="main">
         <div className="side-bar">
           <div className="search-bar">
-            <input className="search-input" type="text" placeholder="Search" />
-            <button className="search-btn">Go</button>
+            <input className="search-input" type="text" placeholder="بحث" value={search} onChange={e=>setSearch(e.target.value)} />
           </div>
           <div className="word-list">
-            <span className="word">Hi</span>
-            <span className="word">Hello</span>
-            <span className="word">Here</span>
-            <span className="word">Him</span>
-            <span className="word">Her</span>
-            <span className="word">His</span>
-            <span className="word">Hi</span>
-            <span className="word">Hello</span>
-            <span className="word">Here</span>
-            <span className="word">Him</span>
-            <span className="word">Her</span>
-            <span className="word">His</span>
-            <span className="word">Hi</span>
-            <span className="word">Hello</span>
-            <span className="word">Here</span>
-            <span className="word">Him</span>
-            <span className="word">Her</span>
-            <span className="word">His</span>
-            <span className="word">Hi</span>
-            <span className="word">Hello</span>
-            <span className="word">Here</span>
-            <span className="word">Him</span>
-            <span className="word">Her</span>
-            <span className="word">His</span>
+          {
+            search===""
+            ?
+            jisho
+            .filter(word=>word.Arabic)
+            .map(word=><span className="word" onClick={()=>setWord(word)}>{word.Arabic}</span>)
+            :
+            jisho
+            .filter(word=>word.Arabic)
+            .filter(word=>word.Arabic.includes(search))
+            .map(word=><span className="word" onClick={()=>setWord(word)}>{word.Arabic}</span>)
+          }
           </div>
         </div>
         <div className="result-page">
-          <h2>Hi</h2>
-          <p>Used when greting somone</p>
+          <h3>العربية</h3>
+          <p>{word.Arabic}</p>
           <hr />
-          <h2>examples</h2>
-          <h3>example #1</h3>
-          <p>Hi every one.</p>
-          <h3>example #2</h3>
-          <p>Hi there, my name is Nour</p>
+          <h3>日本語</h3>
+          <p>{word.Japanese}</p>
+          <p>{word.Furigana}</p>
+          <hr />
+          <h3>English</h3>
+          <p>{word.English}</p>
         </div>
       </main>
     </div>
