@@ -61,4 +61,49 @@
       }
     }
   }
+  @media screen and (max-width:414px){
+    .main{
+      flex-direction: column;
+      .side-bar{
+        // height: 45vh;
+        .search-bar{
+          margin: 0 10px;
+          .search-input{
+            flex:1;
+            margin-top: 2vh;
+            margin-right: 5px;
+            margin-left: 5px;
+            padding: 2vh;
+            border: none;
+            border-radius: 5px;
+          }
+        }
+        .word-list{
+          margin-top: 15px;
+          height: 34vh;
+          overflow-x:scroll;
+          margin-right: 20px;
+          .word{
+            padding: 8px;
+          }
+        }
+      }
+      .result-page{
+        flex: 1;
+        h3{
+          font-size: 18px;
+          margin-left: 10px;
+          box-sizing: border-box;
+        }
+        p{
+          font-size: 14px;
+          margin-left: 20px;
+          box-sizing: border-box;
+        }
+        hr{
+          display: none;
+        }
+      }
+    }
+  }
 }
